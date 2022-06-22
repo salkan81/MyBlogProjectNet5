@@ -21,8 +21,6 @@ namespace MyBlogProject.CORE.Map
             builder.Property(x => x.UpdatedDate).IsRequired(false);
             builder.Property(x => x.UpdatedComputerName).HasMaxLength(255).IsRequired(false);
             builder.Property(x => x.UpdatedIP).HasMaxLength(15).IsRequired(false);
-
-
         }
     }
 }
