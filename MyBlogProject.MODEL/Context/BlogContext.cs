@@ -14,7 +14,6 @@ namespace MyBlogProject.MODEL.Context
     {
         public BlogContext(DbContextOptions<BlogContext>options):base(options)
         {
-
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

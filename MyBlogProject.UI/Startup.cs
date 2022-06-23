@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyBlogProject.MODEL.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +24,8 @@ namespace MyBlogProject.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();//Runtime da derleme iþlemþ yapmayý saðlar
+            services.AddDbContext<BlogContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MyBlogSiteConStr")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
